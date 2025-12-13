@@ -41,12 +41,12 @@
                     placeholder="Masukkan password">
             </div>
 
-            <div class="mb-4">
+            <!-- <div class="mb-4">
                 <label class="flex items-center">
                     <input type="checkbox" name="remember" class="mr-2">
                     <span class="text-gray-700">Ingat Saya</span>
                 </label>
-            </div>
+            </div> -->
 
             <button type="submit" class="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition">
                 Login
