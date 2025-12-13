@@ -7,7 +7,13 @@ use Illuminate\Support\Facades\Route;
 
 // Public Routes
 Route::get('/', function () {
-    return view('welcome');
+    if (auth()->check()) {
+        return auth()->user()->isAdmin()
+            ? redirect()->route('admin.dashboard')
+            : redirect()->route('customer.dashboard');
+    }
+
+    return redirect()->route('login');
 })->name('home');
 
 // Authentication Routes
