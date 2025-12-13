@@ -20,10 +20,18 @@ class CustomerController extends Controller
      */
     public function dashboard()
     {
+        // Total pupuk yang masih ada stok (stok > 0)
         $pupukTersedia = Pupuk::where('stok', '>', 0)->count();
+        
+        // Total pupuk yang stok habis (stok = 0)
         $pupukHabis = Pupuk::where('stok', '=', 0)->count();
+        
+        // Total pupuk yang stoknya menipis (stok <= 10 dan stok > 0)
+        $pupukMenupis = Pupuk::where('stok', '>', 0)
+                             ->where('stok', '<=', 10)
+                             ->count();
 
-        return view('customer.dashboard', compact('pupukTersedia', 'pupukHabis'));
+        return view('customer.dashboard', compact('pupukTersedia', 'pupukHabis', 'pupukMenupis'));
     }
 
     /**

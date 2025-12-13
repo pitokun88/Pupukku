@@ -8,7 +8,8 @@
     <p class="text-gray-600 mt-2">Temukan pupuk berkualitas untuk tanaman Anda</p>
 </div>
 
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <!-- Pupuk Tersedia -->
     <div class="bg-white rounded-lg shadow p-6">
         <div class="flex items-center">
             <div class="p-3 rounded-full bg-green-100 text-green-600 mr-4">
@@ -21,10 +22,24 @@
         </div>
     </div>
 
+    <!-- Stok Menipis -->
+    <div class="bg-white rounded-lg shadow p-6">
+        <div class="flex items-center">
+            <div class="p-3 rounded-full bg-yellow-100 text-yellow-600 mr-4">
+                <i class="fas fa-exclamation-triangle text-3xl"></i>
+            </div>
+            <div>
+                <p class="text-gray-500">Stok Menipis</p>
+                <p class="text-3xl font-bold text-gray-800">{{ $pupukMenupis }}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stok Habis -->
     <div class="bg-white rounded-lg shadow p-6">
         <div class="flex items-center">
             <div class="p-3 rounded-full bg-red-100 text-red-600 mr-4">
-                <i class="fas fa-exclamation-circle text-3xl"></i>
+                <i class="fas fa-times-circle text-3xl"></i>
             </div>
             <div>
                 <p class="text-gray-500">Stok Habis</p>
