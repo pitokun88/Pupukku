@@ -12,7 +12,6 @@ Route::get('/', function () {
             ? redirect()->route('admin.dashboard')
             : redirect()->route('customer.dashboard');
     }
-
     return redirect()->route('login');
 })->name('home');
 
