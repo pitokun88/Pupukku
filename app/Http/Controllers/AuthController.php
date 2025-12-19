@@ -21,12 +21,17 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
+        // Attempt login
         if (Auth::attempt($credentials, $request->filled('remember'))) {
             $request->session()->regenerate();
 
-            if (auth()->user()?->isAdmin()) {
-    return redirect()->intended('/admin/dashboard');
-}
+            /** @var \App\Models\User $user */
+            $user = Auth::user();
+
+            // Cek role user
+            if ($user && $user->isAdmin()) {
+                return redirect()->intended('/admin/dashboard');
+            }
 
             return redirect()->intended('/customer/dashboard');
         }
@@ -53,7 +58,7 @@ class AuthController extends Controller
             'name' => $validated['name'],
             'email' => $validated['email'],
             'password' => Hash::make($validated['password']),
-            'role' => 'customer',
+            'role' => 'customer', // default role
         ]);
 
         Auth::login($user);
